@@ -3,198 +3,190 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#24103f">
 <title>For Inayat 💜</title>
+
 <style>
 *{box-sizing:border-box}
 body{
  margin:0;
  min-height:100vh;
- font-family:Arial,sans-serif;
  color:white;
+ font-family:Arial,sans-serif;
  text-align:center;
- background:linear-gradient(145deg,#160d35,#49246e,#a34b91);
+ background:linear-gradient(135deg,#160b2b,#40205e,#8d438e);
  overflow-x:hidden;
 }
 main{
- max-width:650px;
+ width:min(100% - 30px,650px);
  margin:auto;
- padding:35px 18px 60px;
+ padding:35px 0 55px;
 }
-h1{font-size:38px;margin:15px 0}
-h2{font-size:25px}
-p{line-height:1.6}
-.subtitle{color:#ead8ff}
-.photo{
- width:100%;
- max-width:480px;
- border-radius:20px;
- margin:20px auto;
- display:block;
- box-shadow:0 10px 40px #0006;
-}
-.panel{
- background:#ffffff16;
+h1{font-size:clamp(32px,8vw,48px);margin:15px 0}
+h2{font-size:24px}
+p{line-height:1.7}
+.purple{color:#e9b9ff}
+.small{color:#dbc4ed;font-size:14px}
+.card{
+ background:#ffffff13;
  border:1px solid #ffffff35;
- border-radius:22px;
- padding:22px;
+ border-radius:24px;
+ padding:24px 17px;
  margin:20px 0;
+ box-shadow:0 10px 35px #0003;
  backdrop-filter:blur(10px);
 }
+.bts{
+ width:100%;
+ max-width:470px;
+ border-radius:18px;
+ margin:15px auto;
+ display:block;
+}
 .lock{
- font-size:75px;
- margin:10px;
- animation:float 2s infinite ease-in-out;
+ font-size:85px;
+ margin:12px;
+ animation:float 2s ease-in-out infinite;
 }
 @keyframes float{
- 50%{transform:translateY(-9px)}
+ 50%{transform:translateY(-10px)}
 }
 .timer{
  display:grid;
  grid-template-columns:repeat(4,1fr);
  gap:8px;
- margin-top:20px;
+ margin:25px 0;
 }
-.time{
+.unit{
  background:#ffffff20;
- border-radius:13px;
- padding:13px 4px;
+ border-radius:15px;
+ padding:14px 3px;
 }
-.time strong{
+.unit strong{
  display:block;
- font-size:30px;
+ font-size:clamp(23px,6vw,35px);
 }
-.time small{font-size:11px;color:#ead8ff}
-.heart{color:#ff9fda}
+.unit span{font-size:10px;color:#e5c9f5}
+.date{letter-spacing:3px;color:#f4d5ff}
+.heart{font-size:25px;letter-spacing:8px}
+.hidden{display:none!important}
 .message{
- background:#ffffff17;
- border:1px solid #ffffff35;
- border-radius:16px;
- padding:17px;
- margin:13px 0;
+ background:#ffffff18;
+ border:1px solid #ffffff30;
+ border-radius:17px;
+ padding:18px;
  text-align:left;
+ margin:13px 0;
 }
-.message h3{color:#ffc5e8;margin:0 0 8px}
-.hidden{display:none}
-button{
- border:0;
- border-radius:30px;
- padding:14px 24px;
- background:#ffc2e6;
- color:#40144c;
- font-weight:bold;
- font-size:15px;
- cursor:pointer;
-}
-footer{color:#ddc5ed;font-size:12px;margin-top:35px}
+.message h3{color:#ffc9ed;margin-top:0}
+footer{font-size:12px;color:#d5bce6;margin-top:35px}
 </style>
 </head>
+
 <body>
 <main>
 
-<div class="heart">💜 BTS × INAYAT 💜</div>
-<h1>For Inayat</h1>
-<p class="subtitle">Someone special is waiting for a special day...</p>
+<div class="heart">💜 ♡ 💜</div>
+<p class="purple">A LITTLE SURPRISE FOR</p>
+<h1>INAYAT</h1>
+<p class="small">Someone very special deserves a special day.</p>
 
-<img class="photo"
+<img class="bts"
 src="https://media1.tenor.com/m/bHFQ_JOJH0MAAAAd/bts-photo-time-ot7photo.gif"
-alt="BTS making a heart">
+alt="BTS heart GIF"
+onerror="this.style.display='none'">
 
-<section id="waiting" class="panel">
+<section id="waiting" class="card">
  <div class="lock">🔒</div>
- <h2>Твой подарок пока закрыт...</h2>
- <p class="subtitle">
- Инаят, мы кое-что приготовили для тебя.
- Осталось совсем немного 💗
+ <h2>ТВОЙ ПОДАРОК ЗАПЕРТ</h2>
+ <p class="small">
+ Инаят, твои друзья приготовили для тебя кое-что особенное.
+ Но открыть это можно только в твой день рождения...
  </p>
 
  <div class="timer">
-  <div class="time"><strong id="days">00</strong><small>ДНЕЙ</small></div>
-  <div class="time"><strong id="hours">00</strong><small>ЧАСОВ</small></div>
-  <div class="time"><strong id="minutes">00</strong><small>МИНУТ</small></div>
-  <div class="time"><strong id="seconds">00</strong><small>СЕКУНД</small></div>
+  <div class="unit"><strong id="days">00</strong><span>ДНЕЙ</span></div>
+  <div class="unit"><strong id="hours">00</strong><span>ЧАСОВ</span></div>
+  <div class="unit"><strong id="minutes">00</strong><span>МИНУТ</span></div>
+  <div class="unit"><strong id="seconds">00</strong><span>СЕКУНД</span></div>
  </div>
- <p class="subtitle">08.01.2027 • 00:00 • ALMATY</p>
+
+ <p class="date">08 JANUARY 2027</p>
+ <p class="small">00:00 • ALMATY TIME (UTC+5)</p>
+ <p>💌 Совсем скоро...</p>
 </section>
 
 <section id="opened" class="hidden">
- <div class="panel">
+ <div class="card">
   <div class="lock">🔓💗</div>
-  <h1>С ДНЁМ РОЖДЕНИЯ, ИНАЯТ! 🎂</h1>
-  <h2>YOU ARE SPECIAL 💜</h2>
+  <h1>С ДНЁМ РОЖДЕНИЯ!</h1>
+  <h2 class="purple">С ДНЁМ РОЖДЕНИЯ, ИНАЯТ! 🎂</h2>
   <p>
-   Сегодня твой день! Пусть каждый момент будет
-   наполнен счастьем, улыбками и любовью.
-   Мы тебя очень ценим!
+   Сегодня твой особенный день!
+   Желаем тебе море счастья, искренних улыбок,
+   исполнения желаний и незабываемых моментов.
   </p>
-  <div style="font-size:45px">💜🎀✨</div>
+  <div class="heart">💜 🎀 ✨ 💜</div>
  </div>
 
  <h2>💌 ПОЗДРАВЛЕНИЯ ОТ ДРУЗЕЙ</h2>
- <div id="messages"></div>
- <p>С любовью, твои друзья 💜</p>
+
+ <div class="message">
+  <h3>От друга №1 💜</h3>
+  <p>С днём рождения! Желаю тебе счастья, здоровья и исполнения всех желаний!</p>
+ </div>
+
+ <div class="message">
+  <h3>От друга №2 🎀</h3>
+  <p>Пусть каждый день приносит радость, улыбки и новые впечатления. Оставайся такой же замечательной!</p>
+ </div>
+
+ <div class="message">
+  <h3>От друга №3 ✨</h3>
+  <p>Желаю тебе самых ярких моментов, верных друзей и огромного счастья!</p>
+ </div>
+
+ <div class="message">
+  <h3>От всех друзей 💗</h3>
+  <p>Мы тебя очень ценим. Пусть этот год станет одним из самых прекрасных в твоей жизни!</p>
+ </div>
+
+ <h2>WE LOVE YOU, INAYAT 💜</h2>
 </section>
 
 <footer>
-Made with love for Inayat 💜
+Made with love by your friends 💜
 </footer>
+
 </main>
 
 <script>
-// 8 января 2027, 00:00 по Алматы (UTC+5)
 const birthday = new Date("2027-01-08T00:00:00+05:00").getTime();
-
-// Позже заменим имена и тексты на настоящие поздравления
-const friends = [
- {
-  name:"От друга №1 💜",
-  text:"С днём рождения! Желаю тебе счастья, здоровья и исполнения всех желаний!"
- },
- {
-  name:"От друга №2 🎀",
-  text:"Пусть в твоей жизни будет много радости, незабываемых моментов и настоящих друзей!"
- },
- {
-  name:"От друга №3 ✨",
-  text:"Оставайся такой же замечательной! Пусть каждый день приносит что-то хорошее!"
- },
- {
-  name:"От всех друзей 💗",
-  text:"Мы очень рады, что ты есть в нашей жизни. С праздником, Инаят!"
- }
-];
 
 function unlock(){
  document.getElementById("waiting").classList.add("hidden");
  document.getElementById("opened").classList.remove("hidden");
-
- document.getElementById("messages").innerHTML =
- friends.map(friend => `
-  <div class="message">
-   <h3>${friend.name}</h3>
-   <p>${friend.text}</p>
-  </div>
- `).join("");
 }
 
 function updateTimer(){
  const now = Date.now();
- const distance = birthday-now;
+ const remaining = birthday-now;
 
- if(distance<=0){
+ if(remaining<=0){
   unlock();
   return;
  }
 
- const days=Math.floor(distance/86400000);
- const hours=Math.floor((distance%86400000)/3600000);
- const minutes=Math.floor((distance%3600000)/60000);
- const seconds=Math.floor((distance%60000)/1000);
+ const d=Math.floor(remaining/86400000);
+ const h=Math.floor((remaining%86400000)/3600000);
+ const m=Math.floor((remaining%3600000)/60000);
+ const s=Math.floor((remaining%60000)/1000);
 
- document.getElementById("days").textContent=days;
- document.getElementById("hours").textContent=String(hours).padStart(2,"0");
- document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
- document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
+ document.getElementById("days").textContent=d;
+ document.getElementById("hours").textContent=String(h).padStart(2,"0");
+ document.getElementById("minutes").textContent=String(m).padStart(2,"0");
+ document.getElementById("seconds").textContent=String(s).padStart(2,"0");
 }
 
 updateTimer();
@@ -202,3 +194,4 @@ setInterval(updateTimer,1000);
 </script>
 </body>
 </html>
+
