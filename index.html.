@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Inayat 💜</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ min-height:100vh;
+ font-family:Arial,sans-serif;
+ color:white;
+ text-align:center;
+ background:linear-gradient(145deg,#160d35,#49246e,#a34b91);
+ overflow-x:hidden;
+}
+main{
+ max-width:650px;
+ margin:auto;
+ padding:35px 18px 60px;
+}
+h1{font-size:38px;margin:15px 0}
+h2{font-size:25px}
+p{line-height:1.6}
+.subtitle{color:#ead8ff}
+.photo{
+ width:100%;
+ max-width:480px;
+ border-radius:20px;
+ margin:20px auto;
+ display:block;
+ box-shadow:0 10px 40px #0006;
+}
+.panel{
+ background:#ffffff16;
+ border:1px solid #ffffff35;
+ border-radius:22px;
+ padding:22px;
+ margin:20px 0;
+ backdrop-filter:blur(10px);
+}
+.lock{
+ font-size:75px;
+ margin:10px;
+ animation:float 2s infinite ease-in-out;
+}
+@keyframes float{
+ 50%{transform:translateY(-9px)}
+}
+.timer{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:8px;
+ margin-top:20px;
+}
+.time{
+ background:#ffffff20;
+ border-radius:13px;
+ padding:13px 4px;
+}
+.time strong{
+ display:block;
+ font-size:30px;
+}
+.time small{font-size:11px;color:#ead8ff}
+.heart{color:#ff9fda}
+.message{
+ background:#ffffff17;
+ border:1px solid #ffffff35;
+ border-radius:16px;
+ padding:17px;
+ margin:13px 0;
+ text-align:left;
+}
+.message h3{color:#ffc5e8;margin:0 0 8px}
+.hidden{display:none}
+button{
+ border:0;
+ border-radius:30px;
+ padding:14px 24px;
+ background:#ffc2e6;
+ color:#40144c;
+ font-weight:bold;
+ font-size:15px;
+ cursor:pointer;
+}
+footer{color:#ddc5ed;font-size:12px;margin-top:35px}
+</style>
+</head>
+<body>
+<main>
+
+<div class="heart">💜 BTS × INAYAT 💜</div>
+<h1>For Inayat</h1>
+<p class="subtitle">Someone special is waiting for a special day...</p>
+
+<img class="photo"
+src="https://media1.tenor.com/m/bHFQ_JOJH0MAAAAd/bts-photo-time-ot7photo.gif"
+alt="BTS making a heart">
+
+<section id="waiting" class="panel">
+ <div class="lock">🔒</div>
+ <h2>Твой подарок пока закрыт...</h2>
+ <p class="subtitle">
+ Инаят, мы кое-что приготовили для тебя.
+ Осталось совсем немного 💗
+ </p>
+
+ <div class="timer">
+  <div class="time"><strong id="days">00</strong><small>ДНЕЙ</small></div>
+  <div class="time"><strong id="hours">00</strong><small>ЧАСОВ</small></div>
+  <div class="time"><strong id="minutes">00</strong><small>МИНУТ</small></div>
+  <div class="time"><strong id="seconds">00</strong><small>СЕКУНД</small></div>
+ </div>
+ <p class="subtitle">08.01.2027 • 00:00 • ALMATY</p>
+</section>
+
+<section id="opened" class="hidden">
+ <div class="panel">
+  <div class="lock">🔓💗</div>
+  <h1>С ДНЁМ РОЖДЕНИЯ, ИНАЯТ! 🎂</h1>
+  <h2>YOU ARE SPECIAL 💜</h2>
+  <p>
+   Сегодня твой день! Пусть каждый момент будет
+   наполнен счастьем, улыбками и любовью.
+   Мы тебя очень ценим!
+  </p>
+  <div style="font-size:45px">💜🎀✨</div>
+ </div>
+
+ <h2>💌 ПОЗДРАВЛЕНИЯ ОТ ДРУЗЕЙ</h2>
+ <div id="messages"></div>
+ <p>С любовью, твои друзья 💜</p>
+</section>
+
+<footer>
+Made with love for Inayat 💜
+</footer>
+</main>
+
+<script>
+// 8 января 2027, 00:00 по Алматы (UTC+5)
+const birthday = new Date("2027-01-08T00:00:00+05:00").getTime();
+
+// Позже заменим имена и тексты на настоящие поздравления
+const friends = [
+ {
+  name:"От друга №1 💜",
+  text:"С днём рождения! Желаю тебе счастья, здоровья и исполнения всех желаний!"
+ },
+ {
+  name:"От друга №2 🎀",
+  text:"Пусть в твоей жизни будет много радости, незабываемых моментов и настоящих друзей!"
+ },
+ {
+  name:"От друга №3 ✨",
+  text:"Оставайся такой же замечательной! Пусть каждый день приносит что-то хорошее!"
+ },
+ {
+  name:"От всех друзей 💗",
+  text:"Мы очень рады, что ты есть в нашей жизни. С праздником, Инаят!"
+ }
+];
+
+function unlock(){
+ document.getElementById("waiting").classList.add("hidden");
+ document.getElementById("opened").classList.remove("hidden");
+
+ document.getElementById("messages").innerHTML =
+ friends.map(friend => `
+  <div class="message">
+   <h3>${friend.name}</h3>
+   <p>${friend.text}</p>
+  </div>
+ `).join("");
+}
+
+function updateTimer(){
+ const now = Date.now();
+ const distance = birthday-now;
+
+ if(distance<=0){
+  unlock();
+  return;
+ }
+
+ const days=Math.floor(distance/86400000);
+ const hours=Math.floor((distance%86400000)/3600000);
+ const minutes=Math.floor((distance%3600000)/60000);
+ const seconds=Math.floor((distance%60000)/1000);
+
+ document.getElementById("days").textContent=days;
+ document.getElementById("hours").textContent=String(hours).padStart(2,"0");
+ document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
+ document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
+}
+
+updateTimer();
+setInterval(updateTimer,1000);
+</script>
+</body>
+</html>
