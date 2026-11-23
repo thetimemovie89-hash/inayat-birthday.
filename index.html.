@@ -3,195 +3,432 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#24103f">
-<title>For Inayat 💜</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#180e2c">
+<title>Миссия: Инаят 💜</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
 *{box-sizing:border-box}
 body{
- margin:0;
- min-height:100vh;
- color:white;
- font-family:Arial,sans-serif;
- text-align:center;
- background:linear-gradient(135deg,#160b2b,#40205e,#8d438e);
- overflow-x:hidden;
+ margin:0;min-height:100vh;color:white;
+ font-family:Nunito,sans-serif;
+ background:
+ radial-gradient(circle at 15% 10%,#633c94,transparent 38%),
+ radial-gradient(circle at 90% 85%,#783c86,transparent 35%),
+ #180e2c;
+ overflow-x:hidden
 }
-main{
- width:min(100% - 30px,650px);
- margin:auto;
- padding:35px 0 55px;
+.container{width:min(92%,620px);margin:auto;padding:30px 0 60px}
+header{text-align:center;margin-bottom:24px}
+.logo{letter-spacing:4px;font-size:12px;color:#e9caff;font-weight:900}
+h1{font-size:clamp(35px,9vw,55px);line-height:1.1;margin:12px 0}
+.gradient{
+ background:linear-gradient(90deg,#d8b4fe,#f9a8d4);
+ -webkit-background-clip:text;background-clip:text;color:transparent
 }
-h1{font-size:clamp(32px,8vw,48px);margin:15px 0}
-h2{font-size:24px}
-p{line-height:1.7}
-.purple{color:#e9b9ff}
-.small{color:#dbc4ed;font-size:14px}
+.subtitle{color:#ddcfea}
 .card{
- background:#ffffff13;
- border:1px solid #ffffff35;
- border-radius:24px;
- padding:24px 17px;
- margin:20px 0;
- box-shadow:0 10px 35px #0003;
- backdrop-filter:blur(10px);
+ background:rgba(255,255,255,.09);
+ border:1px solid rgba(255,255,255,.16);
+ border-radius:25px;padding:25px;
+ box-shadow:0 15px 50px #0003;
+ backdrop-filter:blur(14px)
 }
-.bts{
- width:100%;
- max-width:470px;
- border-radius:18px;
- margin:15px auto;
- display:block;
+.center{text-align:center}
+.emoji{font-size:65px;margin:8px}
+h2{font-size:25px;margin:10px 0}
+p{line-height:1.65;color:#e6d9ef}
+button{font-family:inherit;cursor:pointer}
+.primary{
+ width:100%;border:0;border-radius:16px;padding:16px;
+ color:#28123c;font-size:16px;font-weight:900;
+ background:linear-gradient(100deg,#d8b4fe,#f0abfc);
+ transition:.2s
 }
-.lock{
- font-size:85px;
- margin:12px;
- animation:float 2s ease-in-out infinite;
-}
-@keyframes float{
- 50%{transform:translateY(-10px)}
-}
-.timer{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:8px;
- margin:25px 0;
-}
-.unit{
- background:#ffffff20;
- border-radius:15px;
- padding:14px 3px;
-}
-.unit strong{
- display:block;
- font-size:clamp(23px,6vw,35px);
-}
-.unit span{font-size:10px;color:#e5c9f5}
-.date{letter-spacing:3px;color:#f4d5ff}
-.heart{font-size:25px;letter-spacing:8px}
+.primary:active{transform:scale(.98)}
 .hidden{display:none!important}
-.message{
- background:#ffffff18;
- border:1px solid #ffffff30;
- border-radius:17px;
- padding:18px;
- text-align:left;
- margin:13px 0;
+.progress-info{
+ display:flex;justify-content:space-between;
+ color:#e5d4f7;font-size:13px;font-weight:800;margin-bottom:9px
 }
-.message h3{color:#ffc9ed;margin-top:0}
-footer{font-size:12px;color:#d5bce6;margin-top:35px}
+.progress{
+ height:9px;background:#ffffff20;border-radius:20px;
+ overflow:hidden;margin-bottom:25px
+}
+.progress-fill{
+ height:100%;width:0%;
+ background:linear-gradient(90deg,#c4b5fd,#f0abfc);
+ transition:.3s
+}
+.question-number{
+ color:#d8b4fe;font-size:12px;font-weight:900;letter-spacing:2px
+}
+.question{font-size:23px;font-weight:900;line-height:1.4;margin:17px 0 23px}
+.answers{display:grid;gap:11px}
+.answer{
+ width:100%;padding:15px;text-align:left;
+ border:1px solid #ffffff30;border-radius:15px;
+ background:#ffffff0d;color:white;font-size:15px;font-weight:800;
+ transition:.2s
+}
+.answer:hover{background:#c4b5fd25;border-color:#d8b4fe}
+.answer:disabled{opacity:.8;cursor:default}
+.feedback{
+ margin-top:18px;padding:14px;border-radius:14px;
+ font-weight:900;text-align:center
+}
+.correct{background:#4ade8020;color:#bbf7d0}
+.wrong{background:#f8717120;color:#fecaca}
+.next{margin-top:15px}
+.small{font-size:12px;color:#c4b5d3}
+.friend-message{
+ background:#ffffff0d;border:1px solid #ffffff20;
+ border-radius:17px;padding:17px;margin:12px 0;text-align:left
+}
+.friend-message strong{color:#e9c5ff}
+.heart{font-size:75px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.13)}}
+.confetti{
+ position:fixed;top:-25px;font-size:22px;
+ animation:fall 4s linear forwards;pointer-events:none;z-index:5
+}
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:0}}
+.footer{text-align:center;color:#c4b5d3;font-size:12px;margin-top:25px}
 </style>
 </head>
 
 <body>
-<main>
+<main class="container">
 
-<div class="heart">💜 ♡ 💜</div>
-<p class="purple">A LITTLE SURPRISE FOR</p>
-<h1>INAYAT</h1>
-<p class="small">Someone very special deserves a special day.</p>
+<header>
+ <div class="logo">A SPECIAL MISSION FOR INAYAT</div>
+ <h1>Миссия <span class="gradient">Инаят 💜</span></h1>
+ <div class="subtitle">Сможешь пройти все испытания?</div>
+</header>
 
-<img class="bts"
-src="https://media1.tenor.com/m/bHFQ_JOJH0MAAAAd/bts-photo-time-ot7photo.gif"
-alt="BTS heart GIF"
-onerror="this.style.display='none'">
+<!-- СТАРТ -->
+<section id="start" class="card center">
+ <div class="emoji">💜🎀</div>
+ <h2>Добро пожаловать!</h2>
+ <p>
+  Для тебя подготовлена секретная миссия.
+  Тебя ждут вопросы о BTS, загадки и неожиданные задания.
+ </p>
+ <p><b>10 основных вопросов + 1 особенный вопрос.</b></p>
+ <p>Но будь внимательна: одна ошибка — и придётся начать заново!</p>
+ <button class="primary" onclick="startGame()">НАЧАТЬ МИССИЮ ✨</button>
+</section>
 
-<section id="waiting" class="card">
- <div class="lock">🔒</div>
- <h2>ТВОЙ ПОДАРОК ЗАПЕРТ</h2>
- <p class="small">
- Инаят, твои друзья приготовили для тебя кое-что особенное.
- Но открыть это можно только в твой день рождения...
+<!-- ИГРА -->
+<section id="quiz" class="card hidden">
+ <div class="progress-info">
+  <span id="progressText">Вопрос 1 из 10</span>
+  <span id="attemptText">Попытка 1</span>
+ </div>
+ <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+ <div class="question-number" id="questionNumber"></div>
+ <div class="question" id="questionText"></div>
+ <div class="answers" id="answers"></div>
+ <div id="feedback" class="feedback hidden"></div>
+ <button id="nextButton" class="primary next hidden" onclick="nextQuestion()">ДАЛЬШЕ →</button>
+</section>
+
+<!-- ПРОИГРЫШ -->
+<section id="failed" class="card center hidden">
+ <div class="emoji">🥺💔</div>
+ <h2>Миссия провалена!</h2>
+ <p>Одна ошибка — и испытание начинается заново.</p>
+ <p>Но теперь тебя ждут другие вопросы. Не сдавайся!</p>
+ <button class="primary" onclick="startGame()">НОВАЯ ПОПЫТКА 🔄</button>
+</section>
+
+<!-- СПЕЦИАЛЬНЫЙ ВОПРОС -->
+<section id="special" class="card center hidden">
+ <div class="emoji">🎀💗</div>
+ <div class="question-number">ПОСЛЕДНЕЕ ЗАДАНИЕ</div>
+ <h2>Самый важный вопрос...</h2>
+ <div class="question">
+ Кто самая лучшая, добрая, красивая, офигенная и замечательная девочка?
+ </div>
+ <div class="answers" id="specialAnswers"></div>
+ <div id="specialFeedback" class="feedback hidden"></div>
+ <button id="specialNext" class="primary next hidden" onclick="finishGame()">ЗАВЕРШИТЬ МИССИЮ 💜</button>
+</section>
+
+<!-- ПОЗДРАВЛЕНИЕ -->
+<section id="birthday" class="card center hidden">
+ <div class="heart">💜</div>
+ <div class="logo">MISSION COMPLETED</div>
+ <h1>С ДНЁМ РОЖДЕНИЯ, <span class="gradient">ИНАЯТ!</span></h1>
+ <p>
+ Ты прошла все испытания! А теперь самое главное —
+ поздравления от людей, которые хотят сделать твой день особенным.
  </p>
 
- <div class="timer">
-  <div class="unit"><strong id="days">00</strong><span>ДНЕЙ</span></div>
-  <div class="unit"><strong id="hours">00</strong><span>ЧАСОВ</span></div>
-  <div class="unit"><strong id="minutes">00</strong><span>МИНУТ</span></div>
-  <div class="unit"><strong id="seconds">00</strong><span>СЕКУНД</span></div>
+ <!-- ЗАМЕНИТЕ ТЕКСТЫ НА НАСТОЯЩИЕ ПОЗДРАВЛЕНИЯ -->
+ <div class="friend-message">
+  <strong>💌 От друга №1</strong>
+  <p>С днём рождения! Желаю тебе счастья, здоровья, улыбок и исполнения всех желаний!</p>
  </div>
 
- <p class="date">08 JANUARY 2027</p>
- <p class="small">00:00 • ALMATY TIME (UTC+5)</p>
- <p>💌 Совсем скоро...</p>
-</section>
+ <div class="friend-message">
+  <strong>💌 От друга №2</strong>
+  <p>Оставайся такой же доброй и замечательной. Пусть каждый день приносит тебе радость!</p>
+ </div>
 
-<section id="opened" class="hidden">
- <div class="card">
-  <div class="lock">🔓💗</div>
-  <h1>С ДНЁМ РОЖДЕНИЯ!</h1>
-  <h2 class="purple">С ДНЁМ РОЖДЕНИЯ, ИНАЯТ! 🎂</h2>
+ <div class="friend-message">
+  <strong>💌 От друга №3</strong>
+  <p>Пусть рядом всегда будут хорошие люди, а впереди ждёт много счастливых моментов!</p>
+ </div>
+
+ <div class="friend-message">
+  <strong>💜 От всех друзей</strong>
   <p>
-   Сегодня твой особенный день!
-   Желаем тебе море счастья, искренних улыбок,
-   исполнения желаний и незабываемых моментов.
+   Инаят, с днём рождения! Мы желаем тебе огромного счастья,
+   исполнения мечт, много улыбок и незабываемых впечатлений.
+   Спасибо, что ты есть! 💗
   </p>
-  <div class="heart">💜 🎀 ✨ 💜</div>
  </div>
 
- <h2>💌 ПОЗДРАВЛЕНИЯ ОТ ДРУЗЕЙ</h2>
+ <div class="emoji">🎂🎁🎉</div>
+ <h2>Ты заслуживаешь самого лучшего!</h2>
+ <p>С любовью, твои друзья 💜</p>
 
- <div class="message">
-  <h3>От друга №1 💜</h3>
-  <p>С днём рождения! Желаю тебе счастья, здоровья и исполнения всех желаний!</p>
- </div>
-
- <div class="message">
-  <h3>От друга №2 🎀</h3>
-  <p>Пусть каждый день приносит радость, улыбки и новые впечатления. Оставайся такой же замечательной!</p>
- </div>
-
- <div class="message">
-  <h3>От друга №3 ✨</h3>
-  <p>Желаю тебе самых ярких моментов, верных друзей и огромного счастья!</p>
- </div>
-
- <div class="message">
-  <h3>От всех друзей 💗</h3>
-  <p>Мы тебя очень ценим. Пусть этот год станет одним из самых прекрасных в твоей жизни!</p>
- </div>
-
- <h2>WE LOVE YOU, INAYAT 💜</h2>
+ <button class="primary" onclick="location.reload()">ПРОЙТИ ЕЩЁ РАЗ 🔄</button>
 </section>
 
-<footer>
-Made with love by your friends 💜
-</footer>
-
+<div class="footer">Made with love 💜 Especially for Inayat</div>
 </main>
 
 <script>
-const birthday = new Date("2027-01-08T00:00:00+05:00").getTime();
-
-function unlock(){
- document.getElementById("waiting").classList.add("hidden");
- document.getElementById("opened").classList.remove("hidden");
-}
-
-function updateTimer(){
- const now = Date.now();
- const remaining = birthday-now;
-
- if(remaining<=0){
-  unlock();
-  return;
+const questions = [
+ {
+  q:"В каком году BTS официально дебютировали?",
+  a:["2010","2013","2015","2017"],c:1
+ },
+ {
+  q:"Как называется официальный фандом BTS?",
+  a:["BLINK","ARMY","ONCE","MOA"],c:1
+ },
+ {
+  q:"Сколько участников в BTS?",
+  a:["5","6","7","8"],c:2
+ },
+ {
+  q:"Кто является лидером BTS?",
+  a:["Jimin","Jungkook","RM","V"],c:2
+ },
+ {
+  q:"Как называется дебютный сингл-альбом BTS?",
+  a:["2 Cool 4 Skool","Wings","Love Yourself","BE"],c:0
+ },
+ {
+  q:"Как зовут самого младшего участника BTS?",
+  a:["Jin","Jungkook","Suga","J-Hope"],c:1
+ },
+ {
+  q:"Какой участник BTS известен под сценическим именем V?",
+  a:["Kim Taehyung","Kim Namjoon","Park Jimin","Min Yoongi"],c:0
+ },
+ {
+  q:"Как называется песня BTS, выпущенная в 2020 году и ставшая их первым англоязычным синглом?",
+  a:["Butter","Dynamite","Spring Day","Life Goes On"],c:1
+ },
+ {
+  q:"Как зовут участника BTS, известного как SUGA?",
+  a:["Jung Hoseok","Min Yoongi","Kim Seokjin","Jeon Jungkook"],c:1
+ },
+ {
+  q:"Как называется альбом BTS, выпущенный в 2020 году?",
+  a:["Map of the Soul: 7","BE","Wings","Dark & Wild"],c:1
+ },
+ {
+  q:"Какой цвет чаще всего ассоциируется с BTS и ARMY?",
+  a:["Фиолетовый","Зелёный","Оранжевый","Жёлтый"],c:0
+ },
+ {
+  q:"Какая кола лучше?",
+  a:["С сахаром","Без сахара"],c:1
+ },
+ {
+  q:"Как называется песня BTS с фразой «You can't stop me lovin' myself»?",
+  a:["IDOL","DNA","Boy With Luv","Fake Love"],c:0
+ },
+ {
+  q:"Какой участник BTS известен как J-Hope?",
+  a:["Jung Hoseok","Kim Taehyung","Park Jimin","Kim Namjoon"],c:0
+ },
+ {
+  q:"Как называется сольная песня Jungkook, выпущенная в 2023 году?",
+  a:["Seven","Like Crazy","Daechwita","The Astronaut"],c:0
+ },
+ {
+  q:"Как называется альбом BTS, в который входит песня Spring Day?",
+  a:["You Never Walk Alone","BE","Wings","Proof"],c:0
+ },
+ {
+  q:"Кто из участников BTS известен как Worldwide Handsome?",
+  a:["Jin","RM","SUGA","J-Hope"],c:0
+ },
+ {
+  q:"Как называется песня BTS с участием Halsey?",
+  a:["Butter","Boy With Luv","Dynamite","Run"],c:1
+ },
+ {
+  q:"Какой участник BTS выпустил альбом Indigo?",
+  a:["Jimin","Jin","RM","V"],c:2
+ },
+ {
+  q:"В каком году вышла песня Butter?",
+  a:["2019","2020","2021","2022"],c:2
  }
+];
 
- const d=Math.floor(remaining/86400000);
- const h=Math.floor((remaining%86400000)/3600000);
- const m=Math.floor((remaining%3600000)/60000);
- const s=Math.floor((remaining%60000)/1000);
+const specialOptions = [
+ "Инаят 💜",
+ "Конечно же, Инаят 💗",
+ "Только Инаят 🎀",
+ "А кто ещё, если не Инаят? ✨",
+ "Все варианты правильные 💜"
+];
 
- document.getElementById("days").textContent=d;
- document.getElementById("hours").textContent=String(h).padStart(2,"0");
- document.getElementById("minutes").textContent=String(m).padStart(2,"0");
- document.getElementById("seconds").textContent=String(s).padStart(2,"0");
+let currentQuestions = [];
+let current = 0;
+let attempts = 0;
+let selected = false;
+
+function shuffle(arr){
+ const copy = [...arr];
+ for(let i=copy.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));
+  [copy[i],copy[j]]=[copy[j],copy[i]];
+ }
+ return copy;
 }
 
-updateTimer();
-setInterval(updateTimer,1000);
+function show(id){
+ ["start","quiz","failed","special","birthday"].forEach(x=>{
+  document.getElementById(x).classList.toggle("hidden",x!==id);
+ });
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function startGame(){
+ attempts++;
+ current=0;
+ selected=false;
+ currentQuestions=shuffle(questions).slice(0,10);
+ document.getElementById("attemptText").textContent="Попытка "+attempts;
+ show("quiz");
+ renderQuestion();
+}
+
+function renderQuestion(){
+ selected=false;
+ const item=currentQuestions[current];
+ document.getElementById("progressText").textContent="Вопрос "+(current+1)+" из 10";
+ document.getElementById("progressFill").style.width=(current/10*100)+"%";
+ document.getElementById("questionNumber").textContent="Задание "+(current+1);
+ document.getElementById("questionText").textContent=item.q;
+ document.getElementById("feedback").className="feedback hidden";
+ document.getElementById("nextButton").classList.add("hidden");
+
+ const box=document.getElementById("answers");
+ box.innerHTML="";
+
+ let options=item.a.map((text,index)=>({text,correct:index===item.c}));
+ options=shuffle(options);
+
+ options.forEach(option=>{
+  const button=document.createElement("button");
+  button.className="answer";
+  button.textContent=option.text;
+  button.onclick=()=>answerQuestion(button,option.correct);
+  box.appendChild(button);
+ });
+}
+
+function answerQuestion(button,correct){
+ if(selected)return;
+ selected=true;
+
+ document.querySelectorAll("#answers button").forEach(b=>b.disabled=true);
+
+ const feedback=document.getElementById("feedback");
+ feedback.classList.remove("hidden");
+
+ if(correct){
+  button.style.borderColor="#86efac";
+  button.style.background="#4ade8025";
+  feedback.className="feedback correct";
+  feedback.textContent="Правильно! Отличная работа 💜";
+  document.getElementById("nextButton").classList.remove("hidden");
+ }else{
+  button.style.borderColor="#fca5a5";
+  button.style.background="#f8717125";
+  feedback.className="feedback wrong";
+  feedback.textContent="Неправильный ответ! Попробуй ещё раз в новой миссии.";
+  setTimeout(()=>show("failed"),1200);
+ }
+}
+
+function nextQuestion(){
+ current++;
+ if(current<10){
+  renderQuestion();
+ }else{
+  document.getElementById("progressFill").style.width="100%";
+  showSpecial();
+ }
+}
+
+function showSpecial(){
+ show("special");
+ const box=document.getElementById("specialAnswers");
+ box.innerHTML="";
+ document.getElementById("specialFeedback").classList.add("hidden");
+ document.getElementById("specialNext").classList.add("hidden");
+
+ shuffle(specialOptions).forEach(option=>{
+  const button=document.createElement("button");
+  button.className="answer";
+  button.textContent=option;
+  button.onclick=()=>{
+   if(selected)return;
+   selected=true;
+   document.querySelectorAll("#specialAnswers button").forEach(b=>b.disabled=true);
+   button.style.borderColor="#86efac";
+   button.style.background="#4ade8025";
+   const feedback=document.getElementById("specialFeedback");
+   feedback.className="feedback correct";
+   feedback.textContent="Абсолютно правильно! Все ответы верные! 💜";
+   document.getElementById("specialNext").classList.remove("hidden");
+  };
+  box.appendChild(button);
+ });
+ selected=false;
+}
+
+function finishGame(){
+ show("birthday");
+ confetti();
+}
+
+function confetti(){
+ const symbols=["💜","💗","✨","🎀","💖","🌸","⭐"];
+ for(let i=0;i<65;i++){
+  const el=document.createElement("div");
+  el.className="confetti";
+  el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  el.style.left=Math.random()*100+"vw";
+  el.style.animationDelay=Math.random()*2+"s";
+  el.style.fontSize=(15+Math.random()*18)+"px";
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),6500);
+ }
+}
 </script>
 </body>
 </html>
-
